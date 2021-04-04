@@ -45,9 +45,11 @@ public class Largest_Sum_Subarray_K_Numbers {
         int result = sum;
 
         for (int i = k ; i < n ; i++) {
-            sum += arr[i] - arr[i - k];
+            int a = arr[i - k];
+            int b = maxsum[i - k];
+            sum += arr[i] - a;
             result = Math.max(result, sum);
-            result = Math.max(result, sum + maxsum[i - k]);
+            result = Math.max(result, sum + b);
         }
         return result;
     }
